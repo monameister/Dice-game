@@ -40,7 +40,7 @@ function newGame() {
 
 //Шоо шидэх event listener
 document.querySelector(".btn-roll").addEventListener("click", function () {
-  if (isNewGame === true) {
+  if (isNewGame) {
     //1-6 хүртэл тоог рандомоор гаргаж авна.
     var diceNumber = Math.floor(Math.random() * 6 + 1);
 
@@ -66,7 +66,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
 
 //hold товчийн домоос олж эвэнт листенер холбоно.
 document.querySelector(".btn-hold").addEventListener("click", function () {
-  if (isNewGame === true) {
+  if (isNewGame) {
     // Хэрэв тоглогчийн оноо 0 биш үед товчлуур ажиллана.
     if (currentScore !== 0) {
       // Тухайн тоглочийн ээлжийн оноог идэвхитэй тоглогчийн оноон дээр нэмнэ.
@@ -77,7 +77,7 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
         playerScore[activePlayer];
 
       // Хэрэв тухайн тоглогчийн оноо 100-с их болсон үед ялагч болно.
-      if (playerScore[activePlayer] >= 10) {
+      if (playerScore[activePlayer] >= 100) {
         document.getElementById("name-" + activePlayer).textContent = "WINNER!";
         document
           .querySelector(".player-" + activePlayer + "-panel")
