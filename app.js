@@ -4,7 +4,8 @@ var currentScore;
 var isNewGame;
 
 //Шоог олон хайхаас сэргийлж хувьсагчид хадгална
-var diceDom = document.querySelector(".dice");
+var diceDom1 = document.querySelector(".dice1");
+var diceDom2 = document.querySelector(".dice2");
 
 // Программ эхэлхэд бэлтгэе!
 newGame();
@@ -26,7 +27,8 @@ function newGame() {
   document.getElementById("score-1").textContent = 0;
   document.getElementById("current-0").textContent = 0;
   document.getElementById("current-1").textContent = 0;
-  diceDom.style.display = "none";
+  diceDom1.style.display = "none";
+  diceDom2.style.display = "none";
 
   document.getElementById("name-0").textContent = "Player 1";
   document.getElementById("name-1").textContent = "Player 2";
@@ -45,7 +47,8 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     var diceNumber = Math.floor(Math.random() * 6 + 1);
 
     // Шоог ил гаргана.
-    diceDom.style.display = "block";
+    diceDom1.style.display = "block";
+    diceDom2.style.display = "block";
     // Рандомоор гаргаж авсан тоонд харгалзах шооны зургийг харуулна.
     diceDom.src = "dice-" + diceNumber + ".png";
 
