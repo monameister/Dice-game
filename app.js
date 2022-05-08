@@ -44,18 +44,20 @@ function newGame() {
 document.querySelector(".btn-roll").addEventListener("click", function () {
   if (isNewGame) {
     //1-6 хүртэл тоог рандомоор гаргаж авна.
-    var diceNumber = Math.floor(Math.random() * 6 + 1);
+    var diceNumber1 = Math.floor(Math.random() * 6 + 1);
+    var diceNumber2 = Math.floor(Math.random() * 6 + 1);
 
     // Шоог ил гаргана.
     diceDom1.style.display = "block";
     diceDom2.style.display = "block";
     // Рандомоор гаргаж авсан тоонд харгалзах шооны зургийг харуулна.
-    diceDom.src = "dice-" + diceNumber + ".png";
+    diceDom1.src = "dice-" + diceNumber1 + ".png";
+    diceDom2.src = "dice-" + diceNumber2 + ".png";
 
     // Тоглогчийн ээлжийн оноог өөрчлөх нөхцөл
-    if (diceNumber !== 1) {
+    if ((diceNumber1 && diceNumber2) !== 1) {
       // Шооны буусан тоог ээлжийн онооны хувьсагчид нэмнэ.
-      currentScore = currentScore + diceNumber;
+      currentScore = currentScore + diceNumber1 + diceNumber2;
 
       // Ээлжийн онооны хувьсагч дахь тоог идэвхитэй тоглогчид харуулна
       document.getElementById("current-" + activePlayer).textContent =
@@ -109,7 +111,8 @@ function swithPlayers() {
   document.querySelector(".player-1-panel").classList.toggle("active");
 
   // Ээлж сольсон тул шоог алга болгоно.
-  diceDom.style.display = "none";
+  diceDom1.style.display = "none";
+  diceDom2.style.display = "none";
 
   // Идэвхитэй тоглогчийн хувьсагчийг сольж өгнө.
   activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
